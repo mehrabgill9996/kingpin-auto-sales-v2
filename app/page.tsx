@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Award, Clock, Handshake, MapPin, Phone, ShieldCheck } from "lucide-react";
 import CTAButton from "@/components/CTAButton";
 import CarCard from "@/components/CarCard";
+import GoogleReviews from "@/components/GoogleReviews";
 import JsonLd from "@/components/JsonLd";
-import Testimonials from "@/components/Testimonials";
 import { cars } from "@/data/cars";
 import { siteConfig } from "@/data/site-config";
 
@@ -109,7 +109,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Testimonials />
+      <GoogleReviews />
 
       <section className="bg-gray-950 px-4 py-14 text-white md:px-8">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
