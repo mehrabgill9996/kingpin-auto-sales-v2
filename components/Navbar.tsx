@@ -8,10 +8,11 @@ import CTAButton from "./CTAButton";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/inventory", label: "Inventory" },
+  { href: "/financing", label: "Financing" },
+  { href: "/recently-sold", label: "Recently Sold" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
   { href: "/feedback", label: "Feedback" },
-  { href: "/privacy-policy", label: "Privacy" },
 ];
 
 export default function Navbar() {
@@ -28,12 +29,12 @@ export default function Navbar() {
           Kingpin <span className="text-crown-gold">Auto Sales</span>
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-5 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="font-medium text-black transition-colors hover:text-crown-red"
+                className="text-sm font-medium text-black transition-colors hover:text-crown-red"
               >
                 {link.label}
               </Link>
@@ -41,7 +42,10 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 lg:flex">
+          <CTAButton href="/trade-in" variant="secondary" size="sm">
+            Trade-In Value
+          </CTAButton>
           <CTAButton href="/inventory" size="sm">
             View Inventory
           </CTAButton>
@@ -49,7 +53,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-black md:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-black lg:hidden"
           onClick={() => setIsOpen((prev) => !prev)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
@@ -59,7 +63,7 @@ export default function Navbar() {
       </nav>
 
       {isOpen && (
-        <ul className="flex flex-col gap-1 border-t border-gray-200 bg-white px-4 py-4 md:hidden">
+        <ul className="flex flex-col gap-1 border-t border-gray-200 bg-white px-4 py-4 lg:hidden">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
@@ -71,7 +75,15 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
-          <li className="pt-2">
+          <li className="flex flex-col gap-2 pt-2">
+            <CTAButton
+              href="/trade-in"
+              variant="secondary"
+              className="w-full text-center"
+              onClick={() => setIsOpen(false)}
+            >
+              Get Your Trade-In Value
+            </CTAButton>
             <CTAButton href="/inventory" className="w-full text-center" onClick={() => setIsOpen(false)}>
               View Inventory
             </CTAButton>

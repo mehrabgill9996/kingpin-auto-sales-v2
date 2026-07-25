@@ -107,6 +107,15 @@ export default function CarDetailPage({ params }: { params: CarPageParams }) {
               Back to Inventory
             </CTAButton>
           </div>
+
+          <div className="rounded-2xl border border-crown-gold/30 bg-crown-cream/40 p-5">
+            <p className="text-sm text-gray-600">
+              Have a car to trade toward this one? Get an instant estimated value.
+            </p>
+            <CTAButton href="/trade-in" variant="ghost" size="sm" className="mt-2">
+              Get Your Trade-In Value →
+            </CTAButton>
+          </div>
         </div>
       </div>
     </section>

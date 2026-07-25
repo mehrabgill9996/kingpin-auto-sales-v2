@@ -4,6 +4,8 @@ import CTAButton from "@/components/CTAButton";
 import CarCard from "@/components/CarCard";
 import GoogleReviews from "@/components/GoogleReviews";
 import JsonLd from "@/components/JsonLd";
+import RecentlySold from "@/components/RecentlySold";
+import FinancingPartners from "@/components/FinancingPartners";
 import { cars } from "@/data/cars";
 import { siteConfig } from "@/data/site-config";
 
@@ -91,6 +93,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <RecentlySold />
+
       <section className="mx-auto max-w-6xl px-4 py-16 md:px-8">
         <h2 className="text-center font-serif text-3xl font-bold text-gray-900 md:text-4xl">Why Choose Kingpin</h2>
         <div className="mt-10 grid gap-8 sm:grid-cols-3">
@@ -108,6 +112,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <FinancingPartners />
 
       <GoogleReviews />
 

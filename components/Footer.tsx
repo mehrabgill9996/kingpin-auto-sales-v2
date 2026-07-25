@@ -5,10 +5,12 @@ import { siteConfig } from "@/data/site-config";
 
 const quickLinks = [
   { href: "/inventory", label: "Inventory" },
+  { href: "/trade-in", label: "Trade-In Value" },
+  { href: "/financing", label: "Financing" },
+  { href: "/recently-sold", label: "Recently Sold" },
   { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact" },
   { href: "/feedback", label: "Feedback" },
-  { href: "/privacy-policy", label: "Privacy Policy" },
 ];
 
 const legalLinks = [
