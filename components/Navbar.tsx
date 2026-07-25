@@ -22,7 +22,7 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8" aria-label="Main navigation">
         <Link
           href="/"
-          className="font-serif text-lg font-bold tracking-wide text-black md:text-xl"
+          className="font-serif text-lg font-bold tracking-wide text-crown-red md:text-xl"
           aria-label="Kingpin Auto Sales home"
         >
           Kingpin <span className="text-crown-gold">Auto Sales</span>

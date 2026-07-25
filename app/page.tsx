@@ -40,8 +40,8 @@ export default function HomePage() {
 
       <section className="relative overflow-hidden bg-gradient-to-b from-crown-cream to-white px-4 py-20 text-center md:py-28">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-5">
-          <h1 className="font-serif text-4xl font-bold leading-tight text-gray-900 md:text-6xl">
-            Kingpin <span className="text-crown-red">Auto Sales</span>
+          <h1 className="font-serif text-4xl font-bold leading-tight text-crown-red md:text-6xl">
+            Kingpin <span className="text-crown-gold">Auto Sales</span>
           </h1>
           <p className="font-serif text-xl italic text-crown-gold md:text-2xl">&ldquo;Where Quality Drives Trust.&rdquo;</p>
           <p className="max-w-xl text-gray-600">
