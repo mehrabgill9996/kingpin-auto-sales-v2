@@ -20,6 +20,8 @@ export const siteConfig = {
     { days: "Sunday", time: "Closed" },
   ],
   mapEmbedSrc: "https://www.google.com/maps?q=2221+1st+Avenue,+Regina,+SK&output=embed",
+  mapsDirectionsUrl:
+    "https://www.google.com/maps/dir/?api=1&destination=2221+1st+Avenue,+Regina,+SK",
   social: {
     facebook: "https://facebook.com/kingpinautosales",
     instagram: "https://instagram.com/kingpinautosales",

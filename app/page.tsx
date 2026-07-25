@@ -133,7 +133,12 @@ export default function HomePage() {
               Mon&ndash;Sat, 9am&ndash;6pm
             </span>
           </div>
-          <CTAButton href="/contact" size="md">
+          <CTAButton
+            href={siteConfig.mapsDirectionsUrl}
+            size="md"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Get Directions
           </CTAButton>
         </div>
