@@ -9,3 +9,8 @@ html {
 body {
   font-feature-settings: "kern";
 }
+
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(184, 39, 44, 0.35) 1px, transparent 1px);
+  background-size: 22px 22px;
+}

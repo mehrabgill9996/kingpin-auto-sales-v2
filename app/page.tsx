@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Award, Clock, Handshake, MapPin, Phone, ShieldCheck } from "lucide-react";
+import { Award, Clock, Crown, Handshake, MapPin, Phone, ShieldCheck, Star } from "lucide-react";
 import CTAButton from "@/components/CTAButton";
 import CarCard from "@/components/CarCard";
 import GoogleReviews from "@/components/GoogleReviews";
@@ -41,22 +41,65 @@ export default function HomePage() {
       <JsonLd />
 
       <section className="relative overflow-hidden bg-gradient-to-b from-crown-cream to-white px-4 py-20 text-center md:py-28">
+        <div
+          className="absolute -top-24 -left-24 -z-10 h-72 w-72 rounded-full bg-crown-gold/25 blur-3xl"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute -bottom-32 -right-16 -z-10 h-80 w-80 rounded-full bg-crown-red/15 blur-3xl"
+          aria-hidden="true"
+        />
+        <div className="bg-dot-grid absolute inset-0 -z-10 opacity-[0.06]" aria-hidden="true" />
+
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-5">
-          <h1 className="font-serif text-4xl font-bold leading-tight text-crown-red md:text-6xl">
+          <span className="animate-fade-in-up inline-flex items-center gap-2 rounded-full border border-crown-gold/40 bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-crown-red shadow-sm backdrop-blur">
+            <Crown className="h-3.5 w-3.5 text-crown-gold" aria-hidden="true" />
+            Regina&rsquo;s Trusted Pre-Owned Dealer
+          </span>
+
+          <h1 className="animate-fade-in-up font-serif text-4xl font-bold leading-tight tracking-tight text-crown-red drop-shadow-sm [animation-delay:100ms] md:text-6xl">
             Kingpin <span className="text-crown-gold">Auto Sales</span>
           </h1>
-          <p className="font-serif text-xl italic text-crown-gold md:text-2xl">&ldquo;Where Quality Drives Trust.&rdquo;</p>
-          <p className="max-w-xl text-gray-600">
+
+          <p className="animate-fade-in-up font-serif text-xl italic text-crown-gold [animation-delay:200ms] md:text-2xl">
+            &ldquo;Where Quality Drives Trust.&rdquo;
+          </p>
+
+          <div className="animate-fade-in-up flex items-center gap-3 [animation-delay:250ms]" aria-hidden="true">
+            <span className="h-px w-10 bg-crown-gold/40" />
+            <span className="h-1.5 w-1.5 rotate-45 bg-crown-gold" />
+            <span className="h-px w-10 bg-crown-gold/40" />
+          </div>
+
+          <p className="animate-fade-in-up max-w-xl text-gray-600 [animation-delay:300ms]">
             Regina, Saskatchewan&rsquo;s home for quality pre-owned vehicles — hand-picked, honestly priced, and backed
             by a dealership that treats you like family.
           </p>
-          <div className="flex flex-col gap-3 sm:flex-row">
+
+          <div className="animate-fade-in-up flex flex-col gap-3 [animation-delay:400ms] sm:flex-row">
             <CTAButton href="/inventory" size="lg">
               View Inventory
             </CTAButton>
             <CTAButton href="/contact" variant="secondary" size="lg">
               Contact Us
             </CTAButton>
+          </div>
+
+          <div className="animate-fade-in-up flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-sm text-gray-500 [animation-delay:500ms]">
+            <span className="flex items-center gap-1.5">
+              <Star className="h-4 w-4 fill-crown-gold text-crown-gold" aria-hidden="true" />
+              4.9★ Google Rated
+            </span>
+            <span className="hidden h-4 w-px bg-gray-300 sm:block" aria-hidden="true" />
+            <span className="flex items-center gap-1.5">
+              <ShieldCheck className="h-4 w-4 text-crown-red" aria-hidden="true" />
+              No Hidden Fees
+            </span>
+            <span className="hidden h-4 w-px bg-gray-300 sm:block" aria-hidden="true" />
+            <span className="flex items-center gap-1.5">
+              <MapPin className="h-4 w-4 text-crown-red" aria-hidden="true" />
+              Locally Owned in {siteConfig.address.city}
+            </span>
           </div>
         </div>
       </section>
