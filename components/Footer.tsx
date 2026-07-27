@@ -23,8 +23,8 @@ export default function Footer() {
     <footer className="border-t border-crown-gold/20 bg-gray-950 text-gray-300">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-4 md:px-8">
         <div className="space-y-4 md:col-span-2">
-          <Link href="/" className="font-serif text-2xl font-bold tracking-wide text-white" aria-label="Kingpin Auto Sales home">
-            Kingpin <span className="text-crown-gold">Auto Sales</span>
+          <Link href="/" className="font-serif text-2xl font-bold tracking-wide" aria-label="Kingpin Auto Sales home">
+            <span className="text-crown-red">Kingpin</span> <span className="text-crown-gold">Auto Sales</span>
           </Link>
           <p className="max-w-sm text-sm text-gray-400">
             {siteConfig.tagline} Family-owned and operated in {siteConfig.address.city}, {siteConfig.address.province} by {siteConfig.owner}.
