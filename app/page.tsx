@@ -35,7 +35,7 @@ const trustPoints = [
 ];
 
 export default async function HomePage() {
-  const allCars = await client.fetch<SanityCar[]>(carsQuery);
+  const allCars = await client.fetch<SanityCar[]>(carsQuery, {}, { next: { revalidate: 0 } });
   const featuredCars = allCars.slice(0, 4);
 
   return (

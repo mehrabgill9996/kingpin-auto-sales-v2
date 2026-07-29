@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function InventoryPage() {
-  const cars = await client.fetch<SanityCar[]>(carsQuery);
+  const cars = await client.fetch<SanityCar[]>(carsQuery, {}, { next: { revalidate: 0 } });
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 md:px-8">
