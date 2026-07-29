@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Award, Clock, Crown, Handshake, MapPin, Phone, ShieldCheck, Star } from "lucide-react";
 import CTAButton from "@/components/CTAButton";
-import CarCard from "@/components/CarCard";
+import SanityCarCard from "@/components/SanityCarCard";
 import GoogleReviews from "@/components/GoogleReviews";
 import JsonLd from "@/components/JsonLd";
 import RecentlySold from "@/components/RecentlySold";
 import FinancingPartners from "@/components/FinancingPartners";
-import { cars } from "@/data/cars";
+import { client } from "@/sanity/lib/client";
+import { carsQuery, type SanityCar } from "@/sanity/lib/queries";
 import { siteConfig } from "@/data/site-config";
 
 export const metadata: Metadata = {
@@ -33,8 +34,9 @@ const trustPoints = [
   },
 ];
 
-export default function HomePage() {
-  const featuredCars = cars.slice(0, 4);
+export default async function HomePage() {
+  const allCars = await client.fetch<SanityCar[]>(carsQuery);
+  const featuredCars = allCars.slice(0, 4);
 
   return (
     <>
@@ -123,11 +125,17 @@ export default function HomePage() {
             <h2 className="font-serif text-3xl font-bold text-gray-900 md:text-4xl">Featured Vehicles</h2>
             <p className="max-w-xl text-gray-600">A preview of what&rsquo;s currently on our lot in Regina.</p>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {featuredCars.map((car) => (
-              <CarCard key={car.id} car={car} />
-            ))}
-          </div>
+          {featuredCars.length > 0 ? (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {featuredCars.map((car) => (
+                <SanityCarCard key={car._id} car={car} />
+              ))}
+            </div>
+          ) : (
+            <p className="rounded-xl border border-dashed border-gray-200 p-12 text-center text-gray-500">
+              New inventory is on the way &mdash; check back soon!
+            </p>
+          )}
           <div className="mt-10 text-center">
             <CTAButton href="/inventory" size="lg">
               View Full Inventory

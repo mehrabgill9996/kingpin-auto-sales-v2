@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { Car } from "@/data/cars";
-import CarCard from "./CarCard";
+import type { SanityCar } from "@/sanity/lib/queries";
+import SanityCarCard from "./SanityCarCard";
 
 type SortOption = "year-desc" | "year-asc" | "price-asc" | "price-desc";
 
@@ -13,11 +13,11 @@ const sortOptions: { value: SortOption; label: string }[] = [
   { value: "price-desc", label: "Price: High to Low" },
 ];
 
-export default function InventoryFilters({ cars }: { cars: Car[] }) {
-  const priceMin = Math.min(...cars.map((car) => car.price));
-  const priceMax = Math.max(...cars.map((car) => car.price));
-  const yearMin = Math.min(...cars.map((car) => car.year));
-  const yearMax = Math.max(...cars.map((car) => car.year));
+export default function SanityInventoryFilters({ cars }: { cars: SanityCar[] }) {
+  const priceMin = cars.length ? Math.min(...cars.map((car) => car.price)) : 0;
+  const priceMax = cars.length ? Math.max(...cars.map((car) => car.price)) : 0;
+  const yearMin = cars.length ? Math.min(...cars.map((car) => car.year)) : 0;
+  const yearMax = cars.length ? Math.max(...cars.map((car) => car.year)) : 0;
 
   const [sort, setSort] = useState<SortOption>("year-desc");
   const [maxPrice, setMaxPrice] = useState(priceMax);
@@ -39,6 +39,14 @@ export default function InventoryFilters({ cars }: { cars: Car[] }) {
       }
     });
   }, [cars, sort, maxPrice, minYear]);
+
+  if (cars.length === 0) {
+    return (
+      <p className="rounded-xl border border-dashed border-gray-200 p-12 text-center text-gray-500">
+        New inventory is on the way &mdash; check back soon!
+      </p>
+    );
+  }
 
   return (
     <div>
@@ -90,7 +98,7 @@ export default function InventoryFilters({ cars }: { cars: Car[] }) {
       {filteredCars.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredCars.map((car) => (
-            <CarCard key={car.id} car={car} />
+            <SanityCarCard key={car._id} car={car} />
           ))}
         </div>
       ) : (

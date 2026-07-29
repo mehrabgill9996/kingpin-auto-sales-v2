@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
-import { cars } from "@/data/cars";
+import { client } from "@/sanity/lib/client";
+import { carSlugsQuery } from "@/sanity/lib/queries";
 import { siteConfig } from "@/data/site-config";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes = [
     { path: "", priority: 1 },
     { path: "/inventory", priority: 0.9 },
@@ -21,12 +22,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority,
   }));
 
-  const carRoutes = cars.map((car) => ({
-    url: `${siteConfig.url}/inventory/${car.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.6,
-  }));
+  const slugs = await client.fetch<{ slug: string }[]>(carSlugsQuery);
+
+  const carRoutes = slugs
+    .filter((item) => item.slug)
+    .map((item) => ({
+      url: `${siteConfig.url}/inventory/${item.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    }));
 
   return [...staticRoutes, ...carRoutes];
 }

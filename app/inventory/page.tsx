@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import InventoryFilters from "@/components/InventoryFilters";
+import SanityInventoryFilters from "@/components/SanityInventoryFilters";
 import CTAButton from "@/components/CTAButton";
-import { cars } from "@/data/cars";
+import { client } from "@/sanity/lib/client";
+import { carsQuery, type SanityCar } from "@/sanity/lib/queries";
 import { siteConfig } from "@/data/site-config";
 
 export const metadata: Metadata = {
@@ -10,7 +11,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/inventory" },
 };
 
-export default function InventoryPage() {
+export default async function InventoryPage() {
+  const cars = await client.fetch<SanityCar[]>(carsQuery);
+
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 md:px-8">
       <div className="text-center">
@@ -31,7 +34,7 @@ export default function InventoryPage() {
 
       <div className="mt-10">
         <h2 className="sr-only">Available Vehicles</h2>
-        <InventoryFilters cars={cars} />
+        <SanityInventoryFilters cars={cars} />
       </div>
     </section>
   );

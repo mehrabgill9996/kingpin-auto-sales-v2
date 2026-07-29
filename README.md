@@ -31,23 +31,23 @@ app/                     # Next.js App Router routes
   sitemap.ts, robots.ts    SEO file conventions
 components/              # Reusable UI components
 data/
-  cars.ts                  Demo inventory (Car 1 – Car 10)
   site-config.ts           Dealership name, address, phone, email, socials
 lib/
   format.ts                Price / mileage formatting helpers
+sanity/
+  schemaTypes/car.ts        Car document schema (title, price, make/model, year, mileage, transmission, fuel type, description, images, status)
+  lib/queries.ts            GROQ queries + TypeScript types used to fetch cars
 public/
   logo.png                 Crown + car logo (placeholder — replace with your real logo)
-  images/cars/*.jpg         Body-type placeholder photos
 ```
 
-## Replacing the Logo & Car Photos
+## Replacing the Logo
 
-- Drop your real logo file in at `public/logo.png` (same filename) to replace the placeholder crown-and-car mark used across the Navbar, Footer, Home hero, About page, and metadata/social preview images.
-- To use real vehicle photography instead of the generated placeholders, update each car's `imagePlaceholder` field in `data/cars.ts` to point at your own image path (e.g. `/images/cars/my-car-1.jpg`) and add the corresponding file under `public/images/cars/`.
+Drop your real logo file in at `public/logo.png` (same filename) to replace the placeholder crown-and-car mark used across the Navbar, Footer, Home hero, About page, and metadata/social preview images.
 
-## Editing the Demo Inventory
+## Editing Inventory
 
-All demo vehicles live in `data/cars.ts` as a typed array of `Car` objects. Add, remove, or edit entries there — the inventory grid, featured cars on the homepage, and the per-car detail pages (`/inventory/[slug]`) are all generated from this single source of truth, including `generateStaticParams` for static generation at build time.
+Vehicle inventory is managed live in Sanity Studio (`/studio`), not in code. Add, edit, or remove `Car` documents there — the inventory grid, featured cars on the homepage, and the per-car detail pages (`/inventory/[slug]`) are all generated from Sanity at request/build time via `sanity/lib/queries.ts`, including `generateStaticParams` for static generation.
 
 ## Editing Dealership Info
 

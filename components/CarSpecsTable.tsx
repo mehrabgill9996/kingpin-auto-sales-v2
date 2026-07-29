@@ -1,7 +1,7 @@
-import type { Car } from "@/data/cars";
+import type { SanityCarDetail } from "@/sanity/lib/queries";
 import { formatMileage, formatPrice } from "@/lib/format";
 
-export default function CarSpecsTable({ car }: { car: Car }) {
+export default function CarSpecsTable({ car }: { car: SanityCarDetail }) {
   const rows: { label: string; value: string }[] = [
     { label: "Year", value: String(car.year) },
     { label: "Make", value: car.make },
@@ -14,7 +14,7 @@ export default function CarSpecsTable({ car }: { car: Car }) {
 
   return (
     <table className="w-full overflow-hidden rounded-xl border border-gray-100 text-left">
-      <caption className="sr-only">Specifications for {car.name}</caption>
+      <caption className="sr-only">Specifications for {car.title}</caption>
       <tbody>
         {rows.map((row, index) => (
           <tr key={row.label} className={index % 2 === 0 ? "bg-crown-cream/50" : "bg-white"}>
