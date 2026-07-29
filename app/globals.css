@@ -14,3 +14,8 @@ body {
   background-image: radial-gradient(rgba(184, 39, 44, 0.35) 1px, transparent 1px);
   background-size: 22px 22px;
 }
+
+.bg-dot-grid-gold {
+  background-image: radial-gradient(rgba(212, 175, 55, 0.35) 1px, transparent 1px);
+  background-size: 22px 22px;
+}

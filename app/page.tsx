@@ -45,19 +45,23 @@ export default async function HomePage() {
     <>
       <JsonLd />
 
-      <section className="relative overflow-hidden bg-gradient-to-b from-crown-cream to-white px-4 py-20 text-center md:py-28">
+      <section className="relative overflow-hidden bg-gradient-to-b from-gray-950 via-[#1a1212] to-gray-950 px-4 py-20 text-center md:py-28">
         <div
-          className="absolute -top-24 -left-24 -z-10 h-72 w-72 rounded-full bg-crown-gold/25 blur-3xl"
+          className="absolute -top-28 -left-20 -z-10 h-96 w-96 rounded-full bg-crown-gold/35 blur-3xl"
           aria-hidden="true"
         />
         <div
-          className="absolute -bottom-32 -right-16 -z-10 h-80 w-80 rounded-full bg-crown-red/15 blur-3xl"
+          className="absolute -bottom-36 -right-16 -z-10 h-[28rem] w-[28rem] rounded-full bg-crown-red/40 blur-3xl"
           aria-hidden="true"
         />
-        <div className="bg-dot-grid absolute inset-0 -z-10 opacity-[0.06]" aria-hidden="true" />
+        <div
+          className="absolute left-1/2 top-1/3 -z-10 h-64 w-64 -translate-x-1/2 rounded-full bg-crown-red/20 blur-3xl"
+          aria-hidden="true"
+        />
+        <div className="bg-dot-grid-gold absolute inset-0 -z-10 opacity-[0.12]" aria-hidden="true" />
 
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-5">
-          <span className="animate-fade-in-up inline-flex items-center gap-2 rounded-full border border-crown-gold/40 bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-crown-red shadow-sm backdrop-blur">
+          <span className="animate-fade-in-up inline-flex items-center gap-2 rounded-full border border-crown-gold/50 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-crown-goldLight shadow-sm backdrop-blur">
             <Crown className="h-3.5 w-3.5 text-crown-gold" aria-hidden="true" />
             Regina&rsquo;s Trusted Pre-Owned Dealer
           </span>
@@ -71,12 +75,12 @@ export default async function HomePage() {
           </p>
 
           <div className="animate-fade-in-up flex items-center gap-3 [animation-delay:250ms]" aria-hidden="true">
-            <span className="h-px w-10 bg-crown-gold/40" />
+            <span className="h-px w-10 bg-crown-gold/50" />
             <span className="h-1.5 w-1.5 rotate-45 bg-crown-gold" />
-            <span className="h-px w-10 bg-crown-gold/40" />
+            <span className="h-px w-10 bg-crown-gold/50" />
           </div>
 
-          <p className="animate-fade-in-up max-w-xl text-gray-600 [animation-delay:300ms]">
+          <p className="animate-fade-in-up max-w-xl text-gray-300 [animation-delay:300ms]">
             Regina, Saskatchewan&rsquo;s home for quality pre-owned vehicles — hand-picked, honestly priced, and backed
             by a dealership that treats you like family.
           </p>
@@ -85,24 +89,24 @@ export default async function HomePage() {
             <CTAButton href="/inventory" size="lg">
               View Inventory
             </CTAButton>
-            <CTAButton href="/contact" variant="secondary" size="lg">
+            <CTAButton href="/contact" variant="secondaryOnDark" size="lg">
               Contact Us
             </CTAButton>
           </div>
 
-          <div className="animate-fade-in-up flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-sm text-gray-500 [animation-delay:500ms]">
+          <div className="animate-fade-in-up flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-sm text-gray-400 [animation-delay:500ms]">
             <span className="flex items-center gap-1.5">
               <Star className="h-4 w-4 fill-crown-gold text-crown-gold" aria-hidden="true" />
               4.9★ Google Rated
             </span>
-            <span className="hidden h-4 w-px bg-gray-300 sm:block" aria-hidden="true" />
+            <span className="hidden h-4 w-px bg-white/20 sm:block" aria-hidden="true" />
             <span className="flex items-center gap-1.5">
-              <ShieldCheck className="h-4 w-4 text-crown-red" aria-hidden="true" />
+              <ShieldCheck className="h-4 w-4 text-crown-gold" aria-hidden="true" />
               No Hidden Fees
             </span>
-            <span className="hidden h-4 w-px bg-gray-300 sm:block" aria-hidden="true" />
+            <span className="hidden h-4 w-px bg-white/20 sm:block" aria-hidden="true" />
             <span className="flex items-center gap-1.5">
-              <MapPin className="h-4 w-4 text-crown-red" aria-hidden="true" />
+              <MapPin className="h-4 w-4 text-crown-gold" aria-hidden="true" />
               Locally Owned in {siteConfig.address.city}
             </span>
           </div>
