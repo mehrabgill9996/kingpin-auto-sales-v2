@@ -10,6 +10,9 @@ import { client } from "@/sanity/lib/client";
 import { carsQuery, type SanityCar } from "@/sanity/lib/queries";
 import { siteConfig } from "@/data/site-config";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: `${siteConfig.name} | ${siteConfig.tagline}`,
   description: siteConfig.description,

@@ -2,9 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "@/sanity/lib/image";
 import type { SanityCar } from "@/sanity/lib/queries";
-import { formatPrice } from "@/lib/format";
+import { formatPrice, vehicleTitle } from "@/lib/format";
 
 export default function SanityCarCard({ car }: { car: SanityCar }) {
+  const title = vehicleTitle(car);
   const imageUrl = car.coverImage
     ? urlFor(car.coverImage).width(800).height(600).fit("crop").auto("format").url()
     : null;
@@ -18,7 +19,7 @@ export default function SanityCarCard({ car }: { car: SanityCar }) {
         {imageUrl ? (
           <Image
             src={imageUrl}
-            alt={`${car.year} ${car.make} ${car.title} for sale at Kingpin Auto Sales`}
+            alt={`${title} for sale at Kingpin Auto Sales`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -34,12 +35,7 @@ export default function SanityCarCard({ car }: { car: SanityCar }) {
       </div>
 
       <div className="flex flex-1 flex-col gap-2 p-5">
-        <div>
-          <h3 className="font-serif text-xl font-bold text-gray-900">{car.title}</h3>
-          <p className="text-sm text-gray-500">
-            {car.year} {car.make}
-          </p>
-        </div>
+        <h3 className="font-serif text-xl font-bold text-gray-900">{title}</h3>
         <p className="mt-auto font-serif text-2xl font-bold text-crown-red">{formatPrice(car.price)}</p>
       </div>
     </Link>

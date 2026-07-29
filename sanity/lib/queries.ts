@@ -9,6 +9,7 @@ export const carsQuery = `*[_type == "car"] | order(_createdAt desc){
   "slug": slug.current,
   price,
   make,
+  model,
   year,
   coverImage
 }`
@@ -19,6 +20,7 @@ export type SanityCar = {
   slug: string
   price: number
   make: string
+  model: string
   year: number
   coverImage: SanityImageSource | null
 }
@@ -44,7 +46,7 @@ export const carBySlugQuery = `*[_type == "car" && slug.current == $slug][0]{
 
 export type SanityCarDetail = {
   _id: string
-  title: string
+  title?: string
   slug: string
   price: number
   make: string
@@ -52,7 +54,7 @@ export type SanityCarDetail = {
   year: number
   mileage: number
   transmission: string
-  fuelType: string
+  fuelType?: string | null
   description: string
   status: string
   coverImage: SanityImageSource | null
